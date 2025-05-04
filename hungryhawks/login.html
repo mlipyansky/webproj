@@ -1,0 +1,73 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Hungry Hawks</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .logo {
+      color: #a259ff;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    .search-bar {
+      border: 1px solid #a259ff;
+      border-radius: 30px;
+      padding: 8px 12px;
+      width: 250px;
+    }
+
+    .login-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 100px;
+    }
+
+    .login-container input {
+      width: 300px;
+      padding: 12px;
+      margin: 10px 0;
+      font-size: 1rem;
+      border: 1px solid #000;
+    }
+
+    .login-container button {
+      padding: 10px 30px;
+      background-color: #000;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">logo</div>
+    <input type="text" class="search-bar" placeholder="Search..." />
+  </header>
+
+  <div class="login-container">
+    <input type="text" placeholder="User Name" />
+    <input type="password" placeholder="Password" />
+    <button>Login</button>
+  </div>
+</body>
+</html>
