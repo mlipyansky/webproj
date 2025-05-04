@@ -1,15 +1,16 @@
-<!-- search.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Search Results - Hungry Hawks</title>
+  <link rel="stylesheet" href="css/style.css" />
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      background-color: #f8f8f8;
     }
 
     header {
@@ -17,14 +18,12 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      border-bottom: 1px solid #ccc;
       background-color: #fff;
+      border-bottom: 4px solid #a259ff;
     }
 
-    .logo {
-      color: #a259ff;
-      font-weight: bold;
-      font-size: 1.5rem;
+    .logo img {
+      height: 50px;
     }
 
     .search-bar-wrapper {
@@ -34,10 +33,11 @@
     }
 
     .search-bar {
-      border: 1px solid #a259ff;
+      border: 2px solid #a259ff;
       border-radius: 30px;
       padding: 8px 12px;
       width: 250px;
+      outline: none;
     }
 
     .filter-icon {
@@ -61,9 +61,11 @@
     .restaurant-block {
       padding: 1rem 2rem;
       background-color: #fff;
-      margin: 1rem;
+      margin: 1rem auto;
+      width: 90%;
+      border-left: 6px solid #ffcd00;
       border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     .restaurant-header {
@@ -75,13 +77,14 @@
     .restaurant-logo {
       width: 60px;
       height: 60px;
-      background-color: #ccc;
+      background-color: #a259ff;
+      color: white;
       border-radius: 50%;
       margin-right: 1rem;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 0.8rem;
+      font-size: 1.2rem;
     }
 
     .food-grid {
@@ -92,33 +95,49 @@
     }
 
     .food-item {
-      background-color: #ddd;
+      background-color: #ffcd00;
+      color: #333;
       height: 100px;
       border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 0.9rem;
+      text-align: center;
+      font-weight: bold;
     }
 
-    /* Filter modal (hidden for now) */
     .filter-modal {
-      display: none; /* show with JS later */
+      display: none;
       position: fixed;
       top: 100px;
       right: 20px;
       background-color: #fff;
-      border: 1px solid #ccc;
+      border: 2px solid #a259ff;
       padding: 1rem;
       width: 250px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
       z-index: 1000;
+      border-radius: 8px;
+    }
+
+    .filter-modal button {
+      margin-top: 10px;
+      padding: 5px 10px;
+      background-color: #a259ff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
     }
   </style>
 </head>
 
 <body>
   <header>
-    <div class="logo">logo</div>
+    <div class="logo">
+      <img src="assets/images/main_logo.png" alt="Hungry Hawks Logo" />
+    </div>
     <div class="search-bar-wrapper">
       <input type="text" class="search-bar" placeholder="Search restaurants..." />
       <div class="filter-icon" onclick="toggleFilter()">⚙️</div>
@@ -126,91 +145,23 @@
   </header>
 
   <div class="results-text">
-    4 results found
+    Showing results
   </div>
 
   <main id="restaurant-container">
-    <!-- Restaurant blocks populated by JavaScript -->
+    <!-- JS will generate restaurant blocks here -->
   </main>
 
-  <!-- Filter Modal (hidden for now) -->
   <div id="filterModal" class="filter-modal">
     <h3>Filters</h3>
-    <label><input type="checkbox"> Halal</label><br>
-    <label><input type="checkbox"> Vegetarian</label><br>
-    <label><input type="checkbox"> Vegan</label><br>
-    <label><input type="checkbox"> Gluten-Free</label><br>
+    <label><input type="checkbox" value="halal"> Halal</label><br>
+    <label><input type="checkbox" value="vegetarian"> Vegetarian</label><br>
+    <label><input type="checkbox" value="vegan"> Vegan</label><br>
+    <label><input type="checkbox" value="gluten-free"> Gluten-Free</label><br>
     <button onclick="applyFilters()">Apply</button>
   </div>
 
-  <script>
-    const restaurants = [
-      {
-        name: "Joe's Pizza",
-        rating: 4.9,
-        logo: "🍕",
-        foods: ["Cheese Pizza", "Pepperoni Pizza", "Veggie Pizza", "Buffalo Wings"]
-      },
-      {
-        name: "Sushi Time",
-        rating: 4.8,
-        logo: "🍣",
-        foods: ["California Roll", "Spicy Tuna Roll", "Salmon Sashimi", "Shrimp Tempura"]
-      },
-      {
-        name: "Burger Joint",
-        rating: 4.5,
-        logo: "🍔",
-        foods: ["Classic Burger", "Bacon Burger", "Fries", "Milkshake"]
-      },
-      {
-        name: "Taco Fiesta",
-        rating: 4.7,
-        logo: "🌮",
-        foods: ["Beef Taco", "Chicken Taco", "Veggie Taco", "Nachos"]
-      }
-    ];
-
-    function renderRestaurants(data) {
-      const container = document.getElementById('restaurant-container');
-      container.innerHTML = '';
-
-      data.forEach(r => {
-        const block = document.createElement('div');
-        block.className = 'restaurant-block';
-        block.style.cursor = 'pointer';
-
-        block.onclick = () => {
-          localStorage.setItem('selectedRestaurant', JSON.stringify(r));
-          window.location.href = 'restaurant.html';
-        };
-
-        block.innerHTML = `
-          <div class="restaurant-header">
-            <div class="restaurant-logo">${r.logo}</div>
-            <div><strong>${r.name}</strong><br>⭐ ${r.rating}/5</div>
-          </div>
-          <div class="food-grid">
-            ${r.foods.map(food => `<div class="food-item">${food}</div>`).join('')}
-          </div>
-        `;
-        container.appendChild(block);
-      });
-    }
-
-    function toggleFilter() {
-      const modal = document.getElementById('filterModal');
-      modal.style.display = (modal.style.display === 'block') ? 'none' : 'block';
-    }
-
-    function applyFilters() {
-      // You can add filter logic here later!
-      alert("Filters applied (feature coming soon)");
-      toggleFilter();
-    }
-
-    // Initial load
-    renderRestaurants(restaurants);
-  </script>
+  <script src="js/data.js"></script>
+  <script src="js/search.js"></script>
 </body>
 </html>

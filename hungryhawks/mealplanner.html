@@ -1,16 +1,16 @@
-<!-- mealplanner.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Meal Planner - Hungry Hawks</title>
+  <link rel="stylesheet" href="css/style.css" />
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f9f9f9;
+      background-color: #f8f8f8;
     }
 
     header {
@@ -19,166 +19,86 @@
       align-items: center;
       padding: 1rem 2rem;
       background-color: #fff;
-      border-bottom: 1px solid #ccc;
+      border-bottom: 4px solid #a259ff;
     }
 
-    .logo {
-      color: #a259ff;
-      font-weight: bold;
-      font-size: 1.5rem;
+    .logo img {
+      height: 50px;
     }
 
-    .search-bar {
-      border: 1px solid #a259ff;
-      border-radius: 30px;
-      padding: 8px 12px;
-      width: 250px;
-    }
-
-    .planner-section {
+    .planner-container {
+      width: 90%;
+      margin: 2rem auto;
+      background-color: #fff;
       padding: 2rem;
-      text-align: center;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
-    .diet-options {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin: 1rem 0;
+    .planner-container select,
+    .planner-container input {
+      padding: 10px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      border: 2px solid #a259ff;
+      border-radius: 5px;
     }
 
-    .diet-option {
-      background-color: #ddd;
-      width: 100px;
-      height: 100px;
-      border-radius: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
+    .planner-container button {
+      padding: 10px 20px;
+      background-color: #a259ff;
+      color: white;
+      border: none;
+      border-radius: 30px;
       cursor: pointer;
       transition: background-color 0.3s;
     }
 
-    .diet-option.selected {
-      background-color: #a259ff;
-      color: white;
+    .planner-container button:hover {
+      background-color: #7a38cc;
     }
 
-    .calorie-input {
-      margin: 1rem;
-    }
-
-    .calorie-input input {
-      padding: 8px;
-      width: 150px;
-    }
-
-    .planner-section button {
-      margin-top: 1rem;
-      padding: 10px 20px;
-      border-radius: 20px;
-      border: none;
-      background-color: #a259ff;
-      color: white;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-
-    .meal-results {
-      padding: 1rem 2rem;
+    .meal-plan {
       margin-top: 2rem;
     }
 
-    .restaurant-block {
-      background-color: #fff;
-      margin: 1rem 0;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    .food-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
     .food-item {
-      background-color: #ddd;
-      height: 100px;
+      background-color: #ffcd00;
+      color: #333;
+      padding: 10px;
+      margin: 5px;
       border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: inline-block;
+      font-weight: bold;
     }
   </style>
 </head>
 
 <body>
   <header>
-    <div class="logo">logo</div>
-    <input type="text" class="search-bar" placeholder="Search..." />
+    <div class="logo">
+      <img src="assets/images/main_logo.png" alt="Hungry Hawks Logo" />
+    </div>
   </header>
 
-  <div class="planner-section">
-    <h2>Design your meal plan with us</h2>
+  <div class="planner-container">
+    <h2>Meal Planner</h2>
+    <select id="dietSelect">
+      <option value="">Select Diet</option>
+      <option value="halal">Halal</option>
+      <option value="vegetarian">Vegetarian</option>
+      <option value="vegan">Vegan</option>
+      <option value="gluten-free">Gluten-Free</option>
+    </select>
+    <input type="number" id="caloriesInput" placeholder="Target Calories" />
+    <button onclick="createMealPlan()">Create Plan</button>
 
-    <div class="diet-options">
-      <div class="diet-option" onclick="selectDiet(this)">Halal</div>
-      <div class="diet-option" onclick="selectDiet(this)">Keto</div>
-      <div class="diet-option" onclick="selectDiet(this)">Pescetarian</div>
-      <div class="diet-option" onclick="selectDiet(this)">Vegetarian</div>
-      <div class="diet-option" onclick="selectDiet(this)">Vegan</div>
+    <div class="meal-plan" id="mealResults">
+      <!-- Meal plan results will appear here -->
     </div>
-
-    <div class="calorie-input">
-      <label>Amount of calories</label><br>
-      <input type="number" id="calories" placeholder="e.g. 2000" />
-    </div>
-
-    <button onclick="createMealPlan()">Create Meal Plan</button>
   </div>
 
-  <div id="mealResults" class="meal-results">
-    <!-- Meal plan results appear here -->
-  </div>
-
-  <script>
-    let selectedDiet = null;
-
-    function selectDiet(element) {
-      document.querySelectorAll('.diet-option').forEach(opt => opt.classList.remove('selected'));
-      element.classList.add('selected');
-      selectedDiet = element.innerText;
-    }
-
-    function createMealPlan() {
-      const calories = document.getElementById('calories').value;
-      const mealResults = document.getElementById('mealResults');
-      mealResults.innerHTML = '';
-
-      if (!selectedDiet || !calories) {
-        alert('Please select a diet and input calories.');
-        return;
-      }
-
-      // Dummy results
-      const foods = ["Chicken Salad", "Veggie Wrap", "Fruit Bowl", "Smoothie"];
-
-      const block = document.createElement('div');
-      block.className = 'restaurant-block';
-      block.innerHTML = `
-        <h3>${selectedDiet} Meal Plan (~${calories} calories)</h3>
-        <div class="food-grid">
-          ${foods.map(food => `<div class="food-item">${food}</div>`).join('')}
-        </div>
-      `;
-
-      mealResults.appendChild(block);
-    }
-  </script>
+  <script src="js/data.js"></script>
+  <script src="js/mealplanner.js"></script>
 </body>
 </html>
