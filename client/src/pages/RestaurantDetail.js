@@ -48,7 +48,9 @@ function RestaurantDetail() {
         />
         <div className="restaurant-detail-info">
           <h1>{restaurant.name}</h1>
-          <div className="rating">⭐ {restaurant.rating}/5</div>
+          <div className="rating">
+            <span role="img" aria-label="rating">⭐</span> {restaurant.rating}/5
+          </div>
           {restaurant.location && (
             <p className="address">{restaurant.location.address} • {restaurant.location.distance}</p>
           )}

@@ -1,0 +1,120 @@
+/* src/styles/Login.css */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+  }
+  
+  .login-box {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .login-box h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .toggle-buttons {
+    display: flex;
+    margin-bottom: 1.5rem;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 2px solid #a259ff;
+  }
+  
+  .toggle-btn {
+    flex: 1;
+    padding: 0.8rem;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  
+  .toggle-btn.active {
+    background-color: #a259ff;
+    color: white;
+  }
+  
+  .error-message {
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 0.8rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+  }
+  
+  .success-message {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    padding: 0.8rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+  }
+  
+  .form-group input:focus {
+    border-color: #a259ff;
+    outline: none;
+  }
+  
+  .submit-btn {
+    width: 100%;
+    background-color: #a259ff;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 1rem;
+  }
+  
+  .submit-btn:hover {
+    background-color: #8a45e8;
+  }
+  
+  .form-footer {
+    text-align: center;
+    color: #666;
+  }
+  
+  .text-button {
+    background: none;
+    border: none;
+    color: #a259ff;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 0.5rem;
+  }
+  
+  .text-button:hover {
+    text-decoration: underline;
+  }

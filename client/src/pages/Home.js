@@ -26,7 +26,9 @@ function Home() {
                 />
                 <div className="restaurant-info">
                   <h3>{restaurant.name}</h3>
-                  <div className="rating">⭐ {restaurant.rating}/5</div>
+                  <div className="rating">
+                    <span role="img" aria-label="rating">⭐</span> {restaurant.rating}/5
+                  </div>
                 </div>
               </div>
               
