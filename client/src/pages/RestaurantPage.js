@@ -1,3 +1,5 @@
+import React from 'react';
+
 function RestaurantPage() {
     return <h1>Restaurant Detail Page</h1>;
   }
