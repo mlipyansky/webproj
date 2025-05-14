@@ -1,55 +1,45 @@
 // src/data/restaurants.js
 export const restaurants = [
-    {
-      id: 1,
-      name: "Joe's Pizza",
-      rating: 4.9,
-      logo: "https://via.placeholder.com/60",
-      foods: [
-        { name: "Cheese Pizza", tags: ["vegetarian"] },
-        { name: "Buffalo Wings", tags: ["halal"] },
-        { name: "Garlic Knots", tags: ["vegetarian"] },
-        { name: "Calzone", tags: ["vegetarian"] }
-      ],
-      reviews: []
+  {
+    id: 1,
+    name: "Joe's Pizza",
+    rating: 4.9,
+    logo: "images/joes-pizza-logo.png",
+    location: {
+      address: "123 Campus Rd",
+      distance: "0.2 miles from campus",
+      coordinates: { lat: 40.768, lng: -73.964 }
     },
-    {
-      id: 2,
-      name: "Sushi Time",
-      rating: 4.8,
-      logo: "https://via.placeholder.com/60",
-      foods: [
-        { name: "California Roll", tags: ["pescetarian"] },
-        { name: "Spicy Tuna Roll", tags: ["pescetarian"] },
-        { name: "Salmon Sashimi", tags: ["pescetarian"] },
-        { name: "Shrimp Tempura", tags: ["pescetarian"] }
-      ],
-      reviews: []
-    },
-    {
-      id: 3,
-      name: "Veggie Delight",
-      rating: 4.6,
-      logo: "https://via.placeholder.com/60",
-      foods: [
-        { name: "Quinoa Salad", tags: ["vegan", "gluten-free"] },
-        { name: "Avocado Toast", tags: ["vegan"] },
-        { name: "Veggie Wrap", tags: ["vegan"] },
-        { name: "Smoothie", tags: ["vegan", "gluten-free"] }
-      ],
-      reviews: []
-    },
-    {
-      id: 4,
-      name: "Burger Joint",
-      rating: 4.5,
-      logo: "https://via.placeholder.com/60",
-      foods: [
-        { name: "Classic Burger", tags: [] },
-        { name: "Bacon Burger", tags: [] },
-        { name: "Fries", tags: ["vegetarian", "gluten-free"] },
-        { name: "Milkshake", tags: ["vegetarian"] }
-      ],
-      reviews: []
-    }
-  ];
+    priceRange: "$",
+    foods: [
+      { id: 1, name: "Cheese Pizza", price: 3.99, tags: ["vegetarian"] },
+      { id: 2, name: "Buffalo Wings", price: 5.99, tags: ["halal"] },
+      { id: 3, name: "Garlic Knots", price: 2.99, tags: ["vegetarian"] },
+      { id: 4, name: "Calzone", price: 6.99, tags: ["vegetarian"] }
+    ],
+    deals: ["10% off with student ID"],
+    reviews: []
+  },
+  // Add other restaurants with similar structure
+];
+
+// Add common data filtering functions
+export const filterByDiet = (restaurants, dietType) => {
+  return restaurants.filter(restaurant => 
+    restaurant.foods.some(food => 
+      food.tags && food.tags.includes(dietType.toLowerCase())
+    )
+  );
+};
+
+export const filterByPrice = (restaurants, priceRange) => {
+  return restaurants.filter(restaurant => restaurant.priceRange === priceRange);
+};
+
+export const searchRestaurants = (restaurants, term) => {
+  const searchTerm = term.toLowerCase();
+  return restaurants.filter(restaurant => 
+    restaurant.name.toLowerCase().includes(searchTerm) ||
+    restaurant.foods.some(food => food.name.toLowerCase().includes(searchTerm))
+  );
+};
