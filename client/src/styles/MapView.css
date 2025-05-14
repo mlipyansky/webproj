@@ -1,0 +1,11 @@
+/* src/styles/MapView.css */
+.map-view-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  
+  .map-intro {
+    margin-bottom: 2rem;
+    text-align: center;
+  }

@@ -10,7 +10,7 @@ function Map() {
   useEffect(() => {
     // Load Google Maps API script
     const googleMapScript = document.createElement('script');
-    googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places`;
+    googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyCF3RhXiHI-_McBmf9MRupnepk2xU3aKVU&libraries=places`;
     googleMapScript.async = true;
     googleMapScript.defer = true;
     window.document.body.appendChild(googleMapScript);

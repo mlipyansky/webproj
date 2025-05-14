@@ -6,6 +6,7 @@ import Search from './pages/Search';
 import MealPlanning from './pages/MealPlanning';
 import RestaurantDetail from './pages/RestaurantDetail';
 import Login from './pages/Login';
+import MapView from './pages/MapView';
 import './App.css';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <Route path="/meal-planning" element={<MealPlanning />} />
             <Route path="/restaurant/:id" element={<RestaurantDetail />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/map" element={<MapView />} />
           </Routes>
         </main>
       </div>
