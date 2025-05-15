@@ -11,11 +11,12 @@ else
 fi
 
 case "$1" in
-    start)
+    prod)
         cd client
-        $PM start
+        $PM run build
         ;;
     *)
-        echo "Usage: $0 start"
+        cd client
+        $PM start
         ;;
 esac
