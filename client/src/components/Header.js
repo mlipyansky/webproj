@@ -7,7 +7,15 @@ function Header() {
   return (
     <header className="header">
       <div className="header-content">
-        <h1 className="site-title">Hungry Hawks</h1>
+      <div className="site-logo">
+          <Link to="/">
+            <img 
+              src="/main_logo.png" 
+              alt="Hungry Hawks Logo" 
+              className="logo-image"
+            />
+          </Link>
+        </div>
         <nav className="main-nav">
           <Link to="/" className="nav-link">Home</Link>
           <Link to="/search" className="nav-link">Search</Link>

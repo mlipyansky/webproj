@@ -1,36 +1,55 @@
 /* src/styles/Header.css */
 .header {
-    background-color: #9966FF;
-    padding: 1rem;
-    color: white;
-    text-align: center;
-  }
-  
+  background-color: #9966FF;
+  padding: 1rem;
+  color: white;
+  text-align: center;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.site-logo {
+  margin-bottom: 0.5rem;
+}
+
+.logo-image {
+  height: 70px; /* Adjust this value based on your logo's dimensions */
+  width: auto;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* For larger screens, display logo and nav side by side */
+@media (min-width: 768px) {
   .header-content {
-    max-width: 1200px;
-    margin: 0 auto;
+    flex-direction: row;
+    justify-content: space-between;
   }
   
-  .site-title {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+  .site-logo {
+    margin-bottom: 0;
   }
-  
-  .main-nav {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-  }
-  
-  .nav-link {
-    color: white;
-    text-decoration: none;
-    font-size: 1.1rem;
-    padding: 0.3rem 0.5rem;
-    border-radius: 4px;
-    transition: background-color 0.2s;
-  }
-  
-  .nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-  }
+}
