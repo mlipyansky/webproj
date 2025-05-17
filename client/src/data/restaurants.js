@@ -4,7 +4,7 @@ export const restaurants = [
     id: 1,
     name: "Joe's Pizza",
     rating: 4.9,
-    logo: "https://via.placeholder.com/60",
+    logo: "/main_logo.png",
     location: {
       address: "123 Campus Rd",
       distance: "0.2 miles from campus",
@@ -24,7 +24,7 @@ export const restaurants = [
     id: 2,
     name: "Sushi Time",
     rating: 4.8,
-    logo: "https://via.placeholder.com/60",
+    logo: "/main_logo.png",
     location: {
       address: "456 Lexington Ave",
       distance: "0.4 miles from campus",
@@ -44,7 +44,7 @@ export const restaurants = [
     id: 3,
     name: "Veggie Delight",
     rating: 4.6,
-    logo: "https://via.placeholder.com/60",
+    logo: "/main_logo.png",
     location: {
       address: "789 Park Ave",
       distance: "0.5 miles from campus",
@@ -64,7 +64,7 @@ export const restaurants = [
     id: 4,
     name: "Burger Joint",
     rating: 4.5,
-    logo: "https://via.placeholder.com/60",
+    logo: "/main_logo.png",
     location: {
       address: "321 Third Ave",
       distance: "0.3 miles from campus",
