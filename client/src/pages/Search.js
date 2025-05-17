@@ -120,12 +120,7 @@ function Search() {
             searchResults.map(restaurant => (
               <div key={restaurant.id} className="restaurant-card">
                 <div className="restaurant-header">
-                  <img 
-                    src={restaurant.logo} 
-                    alt={restaurant.name} 
-                    className="restaurant-logo"
-                    onError={(e) => {e.target.src = 'images/default-logo.png'}}
-                  />
+            
                   <div className="restaurant-info">
                     <h3>{restaurant.name}</h3>
                     <div className="rating">
@@ -135,9 +130,9 @@ function Search() {
                 </div>
                 
                 <div className="food-grid">
-                  {restaurant.foods.slice(0, 4).map(food => (
-                    <div key={food.id || food.name} className="food-item">
-                      {food.name}
+                  {restaurant.menu.slice(0, 4).map(item => (
+                    <div key={item.id || item.name} className="food-item">
+                      {item.name}
                     </div>
                   ))}
                 </div>

@@ -28,7 +28,7 @@ function MealPlanning() {
     
     // Get all foods matching the diet
     const dietFoods = filteredRestaurants.flatMap(r => 
-      r.foods.filter(f => f.tags && f.tags.includes(selectedDiet.toLowerCase()))
+      r.menu.filter(item => item.tags && item.tags.includes(selectedDiet.toLowerCase()))
     );
     
     if (dietFoods.length === 0) {
@@ -99,7 +99,7 @@ function MealPlanning() {
                 <h3>{food.name}</h3>
                 <p className="restaurant-source">
                   from {restaurants.find(r => 
-                    r.foods.some(f => f.id === food.id)
+                    r.menu.some(item => item.id === food.id)
                   )?.name || 'Unknown Restaurant'}
                 </p>
                 <div className="food-tags">

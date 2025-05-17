@@ -47,37 +47,31 @@ function Home() {
       <section className="featured-section">
         <h2 className="section-title">Featured Restaurants</h2>
         <div className="restaurant-grid">
-          {restaurants.map(restaurant => (
-            <div key={restaurant.id} className="restaurant-card">
-              <div className="restaurant-header">
-                <img 
-                  src={restaurant.logo} 
-                  alt={restaurant.name} 
-                  className="restaurant-logo"
-                  onError={(e) => {e.target.src = 'images/default-logo.png'}}
-                />
-                <div className="restaurant-info">
-                  <h3>{restaurant.name}</h3>
-                  <div className="rating">
-                    <span role="img" aria-label="rating">⭐</span> {restaurant.rating}/5
-                  </div>
-                </div>
-              </div>
-              
-              <div className="food-grid">
-                {restaurant.foods.map(food => (
-                  <div key={food.id} className="food-item">
-                    {food.name}
-                  </div>
-                ))}
-              </div>
-              
-              <Link to={`/restaurant/${restaurant.id}`} className="view-details-btn">
-                View Details
-              </Link>
-            </div>
-          ))}
+  {restaurants.map(restaurant => (
+    <div key={restaurant.id} className="restaurant-card">
+      <div className="restaurant-header">
+        <div className="restaurant-info">
+          <h3>{restaurant.name}</h3>
+          <div className="rating">
+            <span role="img" aria-label="rating">⭐</span> {restaurant.rating}/5
+          </div>
         </div>
+      </div>
+      
+      <div className="food-grid">
+        {restaurant.menu.map(item => (
+          <div key={item.id} className="food-item">
+            {item.name}
+          </div>
+        ))}
+      </div>
+      
+      <Link to={`/restaurant/${restaurant.id}`} className="view-details-btn">
+        View Details
+      </Link>
+    </div>
+  ))}
+</div>
       </section>
       
       {/* How It Works Section - New */}

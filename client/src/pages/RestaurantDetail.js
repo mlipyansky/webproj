@@ -1,4 +1,3 @@
-// src/pages/RestaurantDetail.js
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { restaurants } from '../data/restaurants';
@@ -40,36 +39,40 @@ function RestaurantDetail() {
   return (
     <div className="restaurant-detail-container">
       <div className="restaurant-detail-header">
-        <img 
-          src={restaurant.logo} 
-          alt={restaurant.name} 
-          className="restaurant-detail-logo"
-          onError={(e) => {e.target.src = 'images/default-logo.png'}}
-        />
         <div className="restaurant-detail-info">
           <h1>{restaurant.name}</h1>
           <div className="rating">
             <span role="img" aria-label="rating">⭐</span> {restaurant.rating}/5
           </div>
-          {restaurant.location && (
-            <p className="address">{restaurant.location.address} • {restaurant.location.distance}</p>
-          )}
-          {restaurant.priceRange && (
-            <p className="price-range">Price Range: {restaurant.priceRange}</p>
-          )}
+          <p className="address">{restaurant.address}</p>
+          <p className="price-range">Price Range: {restaurant.priceRange}</p>
+          <p className="description">{restaurant.description}</p>
+          {restaurant.website && (
+  <p className="website">
+    <span role="img" aria-label="website">🌐</span>{' '}
+    <a 
+      href={restaurant.website} 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      className="website-link"
+    >
+      Visit Website
+    </a>
+  </p>
+)}
         </div>
       </div>
 
       <section className="menu-section">
-        <h2>Menu</h2>
+        <h2>Featured Menu Items</h2>
         <div className="food-detail-grid">
-          {restaurant.foods.map(food => (
-            <div key={food.id} className="food-detail-item">
-              <h3>{food.name}</h3>
-              {food.price && <p className="price">${food.price}</p>}
-              {food.tags && food.tags.length > 0 && (
+          {restaurant.menu.map(item => (
+            <div key={item.id} className="food-detail-item">
+              <h3>{item.name}</h3>
+              {item.price && <p className="price">${item.price.toFixed(2)}</p>}
+              {item.tags && item.tags.length > 0 && (
                 <div className="tags">
-                  {food.tags.map(tag => (
+                  {item.tags.map(tag => (
                     <span key={tag} className="tag">{tag}</span>
                   ))}
                 </div>
@@ -79,18 +82,16 @@ function RestaurantDetail() {
         </div>
       </section>
 
-      <section className="deals-section">
-        {restaurant.deals && restaurant.deals.length > 0 && (
-          <>
-            <h2>Special Deals</h2>
-            <ul className="deals-list">
-              {restaurant.deals.map((deal, index) => (
-                <li key={index} className="deal-item">{deal}</li>
-              ))}
-            </ul>
-          </>
-        )}
-      </section>
+      {restaurant.deals && restaurant.deals.length > 0 && (
+        <section className="deals-section">
+          <h2>Special Deals</h2>
+          <ul className="deals-list">
+            {restaurant.deals.map((deal, index) => (
+              <li key={index} className="deal-item">{deal}</li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <section className="reviews-section">
         <h2>Reviews</h2>

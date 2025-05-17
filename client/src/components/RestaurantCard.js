@@ -6,16 +6,15 @@ function RestaurantCard({ restaurant }) {
   return (
     <div className="restaurant-card">
       <div className="restaurant-header">
-        <img src={restaurant.logo} className="restaurant-logo" alt={restaurant.name} />
         <div>
           <h3>{restaurant.name}</h3>
-          <p>⭐ {restaurant.rating}/5</p>
+          <p><span role="img" aria-label="rating">⭐</span> {restaurant.rating}/5</p>
         </div>
       </div>
       <div className="food-grid">
-        {restaurant.foods.map((food, index) => (
-          <div key={index} className="food-item">
-            {food.name}
+        {restaurant.menu.map((item) => (
+          <div key={item.id} className="food-item">
+            {item.name}
           </div>
         ))}
       </div>
