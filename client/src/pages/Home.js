@@ -5,6 +5,9 @@ import { restaurants } from '../data/restaurants';
 import '../styles/Home.css';
 
 function Home() {
+
+  const featuredRestaurants = restaurants.slice(0, 6);
+
   return (
     <div className="home-container">
       {/* Hero Section - Enhanced */}
@@ -47,7 +50,8 @@ function Home() {
       <section className="featured-section">
         <h2 className="section-title">Featured Restaurants</h2>
         <div className="restaurant-grid">
-  {restaurants.map(restaurant => (
+        {featuredRestaurants.map(restaurant => (
+  
     <div key={restaurant.id} className="restaurant-card">
       <div className="restaurant-header">
         <div className="restaurant-info">
@@ -57,6 +61,7 @@ function Home() {
           </div>
         </div>
       </div>
+        
       
       <div className="food-grid">
         {restaurant.menu.map(item => (
@@ -72,6 +77,13 @@ function Home() {
     </div>
   ))}
 </div>
+{restaurants.length > 6 && (
+          <div className="view-all-container">
+            <Link to="/search" className="view-all-btn">
+              View All Restaurants
+            </Link>
+          </div>
+        )}
       </section>
       
       {/* How It Works Section - New */}

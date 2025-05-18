@@ -239,7 +239,152 @@ export const restaurants = [
     ],
     deals: "",
   },
+  {
+    id: 16,
+    name: "Corrado Bread and Pastry",
+    rating: 4.7,
+    address: "960 Lexington Ave, New York, NY 10065",
+    description: "Bakery offering a selection of breads, pastries, and coffee.",
+    priceRange: "$$",
+    website: "https://www.yelp.com/biz/corrado-bread-and-pastry-new-york",
+    menu: [
+      { id: 1, name: "Almond Croissant", tags: [] },
+      { id: 2, name: "Cappuccino", tags: [] },
+      { id: 3, name: "Tomato Mozzarella Sandwich", tags: [] },
+      { id: 4, name: "Blueberry Muffin", tags: [] }
+    ],
+    deals: "",
+  },
+  {
+    id: 17,
+    name: "Mariella Pizza",
+    rating: 4.4,
+    address: "965 Lexington Ave, New York, NY 10065",
+    description: "Neighborhood pizzeria known for its classic New York-style slices.",
+    priceRange: "$1-10",
+    website: "https://www.ordermariellapizzamenu.com/?utm_source=gbp",
+    menu: [
+      { id: 1, name: "Sicilian Slice", tags: [] },
+      { id: 2, name: "White Pizza", tags: [] },
+      { id: 3, name: "Garlic Knots", tags: [] },
+      { id: 4, name: "Buffalo Chicken Slice", tags: [] }
+    ],
+    deals: "",
+  },
+  {
+    id: 18,
+    name: "Dos Toros Taqueria",
+    rating: 4.3,
+    address: "1115 Lexington Ave, New York, NY 10075",
+    description: "Fast-casual Mexican spot offering tacos, burritos, and bowls.",
+    priceRange: "$10-20",
+    website: "https://www.dostoros.com/",
+    menu: [
+      { id: 1, name: "Carnitas Tacos", tags: [] },
+      { id: 2, name: "Pollo Asado Burrito", tags: [] },
+      { id: 3, name: "Rice Bowl", tags: [] },
+      { id: 4, name: "Chips & Salsa", tags: [] }
+    ],
+    deals: "",
+  },
+  {
+    id: 19,
+    name: "Peng's Noodle Folk",
+    rating: 4.7,
+    address: "1016 Lexington Ave, New York, NY 10128",
+    description: "Chinese restaurant serving dumplings, noodles, and stir-fry.",
+    priceRange: "$20-30",
+    website: "https://www.pengsnoodlefolk.com/",
+    menu: [
+      { id: 1, name: "Dan Dan Noodles", tags: [] },
+      { id: 2, name: "Pork Dumplings", tags: [] },
+      { id: 3, name: "Hot & Sour Soup", tags: [] },
+      { id: 4, name: "Lo Mein", tags: [] }
+    ],
+    deals: "",
+  },
+  {
+    id: 20,
+    name: "Ajisai Japanese Fusion",
+    rating: 4.3,
+    address: "795 Lexington Ave, New York, NY 10065",
+    description: "Japanese restaurant offering sushi and fusion dishes.",
+    priceRange: "$20-30",
+    website: "https://www.ajisaionline.com/",
+    menu: [
+      { id: 1, name: "Sushi Combo", tags: [] },
+      { id: 2, name: "Spicy Tuna Roll", tags: [] },
+      { id: 3, name: "Yaki Udon", tags: [] },
+      { id: 4, name: "Shrimp Tempura", tags: [] }
+    ],
+    deals: "",
+  },
+  {
+    id: 21,
+    name: "Kuu Ramen",
+    rating: 4.7,
+    address: "1275 1st Ave, New York, NY 10065",
+    description: "Casual Japanese ramen shop serving tonkotsu, miso, and spicy ramen bowls with add-ons like egg and pork.",
+    priceRange: "$20-30",
+    website: "https://meijinramen.wixsite.com/kuu-ues",
+    menu: [
+      { id: 1, name: "Tonkotsu Ramen", tags: [] },
+      { id: 2, name: "Spicy Miso Ramen", tags: [] },
+      { id: 3, name: "Pork Gyoza", tags: [] },
+      { id: 4, name: "Seaweed Salad", tags: [] }
+    ],
+    deals: "",
+  },
+  {
+    id: 22,
+    name: "Taco Bell",
+    rating: 3.9,
+    address: "1614 2nd Ave, New York, NY 10028",
+    description: "National chain serving tacos, burritos, and other Mexican-style fast food at low prices.",
+    priceRange: "$10-20",
+    website: "https://www.tacobell.com/food?store=035896&utm_source=yext&utm_campaign=googlelistings&utm_medium=referral&utm_term=035896&utm_content=menu&y_source=1_MTI4MzQ1MjYtNzE1LWxvY2F0aW9uLm1lbnVfdXJs",
+    menu: [
+      { id: 1, name: "Crunchwrap Supreme", tags: [] },
+      { id: 2, name: "Chicken Quesadilla", tags: [] },
+      { id: 3, name: "Bean Burrito", tags: [] },
+      { id: 4, name: "Soft Taco", tags: [] }
+    ],
+    deals: "",
+  },
+  {
+    id: 23,
+    name: "Panda Express",
+    rating: 3.8,
+    address: "1277 1st Ave, New York, NY 10065",
+    description: "Fast-food chain for Chinese standards, including some health-conscious options.",
+    priceRange: "$",
+    website: "https://www.pandaexpress.com/locations/ny/new-york/2545",
+    menu: [
+      { id: 1, name: "Chow Mein", tags: [] },
+      { id: 2, name: "Orange Chicken", tags: [] },
+      { id: 3, name: "Beef with Broccoli", tags: [] },
+      { id: 4, name: "Honey Walnut Shrimp", tags: [] }
+    ],
+    deals: "",
+  },
+  {
+    id: 24,
+    name: "Wonder Lenox Hill",
+    rating: 3.5,
+    address: "888 Lexington Ave, New York, NY 10065",
+    description: "The best restaurants from across the country, all in one place.",
+    priceRange: "$10-20",
+    website: "https://www.wonder.com/food-delivery-locations/lenox-hill?utm_source=google&utm_campaign=202407_Google_PerformanceMax_HDR_NA_All&url=https://app.wonder.com/frcfb8tfWKb&utm_source=google&utm_campaign=202407_Google_PerformanceMax_HDR_NA_All&gad_source=1&gad_campaignid=21894305889&gbraid=0AAAAABq3v3tCqiXXh5vDFDVtjgM7cnt5V&gclid=CjwKCAjw56DBBhAkEiwAaFsG-sEzL1jKaeHLp7UH7UmSQ-eECdRSRpFyITC_xRKVoeIzphPTWUmlrhoCcPMQAvD_BwE",
+    menu: [
+      { id: 1, name: "Tejas Barbecue", tags: [] },
+      { id: 2, name: "Royal Greens", tags: [] },
+      { id: 3, name: "Di Fara Pizza", tags: [] },
+      { id: 4, name: "Bobby Flay Steak", tags: [] }
+    ],
+    deals: "Constant promotions and discounts for Hunter Students, keep an eye out!",
+  },
 ];
+
 
 // Filter functions for restaurant data
 export const filterByDiet = (restaurants, dietType) => {
