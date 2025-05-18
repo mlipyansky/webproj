@@ -154,3 +154,22 @@
   .detail-tag {
     margin-left: 0.5rem;
   }
+
+  .food-detail-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0.5rem 0;
+  }
+  
+  .calories {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: #f57c00;
+    font-weight: bold;
+  }
+  
+  .calorie-icon {
+    font-size: 0.9rem;
+  }

@@ -37,7 +37,7 @@ function Home() {
             <h3>Key Features:</h3>
             <ul className="features-list">
               <li><span>🍽️</span> Curated restaurant listings near Hunter College</li>
-              <li><span>🥗</span> Filter by cuisine</li>
+              <li><span>🥗</span> Filter by restaurants, foods, or cuisines</li>
               <li><span>💰</span> View student discounts and special deals</li>
               <li><span>🗺️</span> Interactive map to find locations easily</li>
               <li><span>📝</span> Create personalized meal plans based on preferences</li>

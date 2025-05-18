@@ -69,23 +69,31 @@ function RestaurantDetail() {
       </div>
 
       <section className="menu-section">
-        <h2>Featured Menu Items</h2>
-        <div className="food-detail-grid">
-          {restaurant.menu.map(item => (
-            <div key={item.id} className="food-detail-item">
-              <h3>{item.name}</h3>
-              {item.price && <p className="price">${item.price.toFixed(2)}</p>}
-              {item.tags && item.tags.length > 0 && (
-                <div className="tags">
-                  {item.tags.map(tag => (
-                    <span key={tag} className="tag">{tag}</span>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
+  <h2>Featured Menu Items</h2>
+  <div className="food-detail-grid">
+    {restaurant.menu.map(item => (
+      <div key={item.id} className="food-detail-item">
+        <h3>{item.name}</h3>
+        <div className="food-detail-info">
+          {item.price && <p className="price">${item.price.toFixed(2)}</p>}
+          {item.calories && (
+            <p className="calories">
+              <span className="calorie-icon">🔥</span> 
+              {item.calories} cal
+            </p>
+          )}
         </div>
-      </section>
+        {item.tags && item.tags.length > 0 && (
+          <div className="tags">
+            {item.tags.map(tag => (
+              <span key={tag} className="tag">{tag}</span>
+            ))}
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
+</section>
 
     
 
