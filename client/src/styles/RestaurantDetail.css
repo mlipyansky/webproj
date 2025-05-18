@@ -143,3 +143,14 @@
     font-size: 0.9rem;
     color: #666;
   }
+
+  .cuisine {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.3rem 0;
+  }
+  
+  .detail-tag {
+    margin-left: 0.5rem;
+  }

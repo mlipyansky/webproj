@@ -8,7 +8,11 @@ function RestaurantCard({ restaurant }) {
       <div className="restaurant-header">
         <div>
           <h3>{restaurant.name}</h3>
-          <p><span role="img" aria-label="rating">⭐</span> {restaurant.rating}/5</p>
+          <p><span role="img" aria-label="rating">⭐</span> {restaurant.rating}/5
+          {restaurant.cuisine && (
+            <span className="cuisine-tag">{restaurant.cuisine}</span>
+          )}
+        </p>    
         </div>
       </div>
       <div className="food-grid">

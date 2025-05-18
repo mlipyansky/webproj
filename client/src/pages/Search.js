@@ -1,22 +1,19 @@
-// src/pages/Search.js
-import React, { useState } from 'react';
+// client/src/pages/Search.js
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { restaurants, searchRestaurants } from '../data/restaurants';
 import '../styles/Search.css';
 
 function Search() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [activeFilters, setActiveFilters] = useState([]);
+  const [selectedCuisine, setSelectedCuisine] = useState('');
   const [filterModalOpen, setFilterModalOpen] = useState(false);
   const [searchResults, setSearchResults] = useState(restaurants);
 
-  const dietaryOptions = [
-    { value: 'halal', label: 'Halal' },
-    { value: 'vegetarian', label: 'Vegetarian' },
-    { value: 'vegan', label: 'Vegan' },
-    { value: 'gluten-free', label: 'Gluten-Free' }
-  ];
+  // Get unique cuisines from restaurant data
+  const uniqueCuisines = [...new Set(restaurants.map(r => r.cuisine))].filter(Boolean);
 
+  // Handle search input change
   const handleSearch = (e) => {
     const term = e.target.value;
     setSearchTerm(term);
@@ -24,10 +21,10 @@ function Search() {
     // If search term is not empty, filter restaurants
     if (term.trim() !== '') {
       const results = searchRestaurants(restaurants, term);
-      setSearchResults(results);
+      applyFilters(results);
     } else {
       // If search term is empty, show all restaurants or apply only filters
-      setSearchResults(restaurants);
+      applyFilters(restaurants);
     }
   };
 
@@ -35,46 +32,29 @@ function Search() {
     setFilterModalOpen(!filterModalOpen);
   };
 
-  const toggleFilterOption = (filter) => {
-    if (activeFilters.includes(filter)) {
-      setActiveFilters(activeFilters.filter(f => f !== filter));
-    } else {
-      setActiveFilters([...activeFilters, filter]);
-    }
+  const handleCuisineChange = (e) => {
+    setSelectedCuisine(e.target.value);
   };
 
-  const applyFilters = () => {
-    if (activeFilters.length === 0) {
-      // If no filters are active, just apply the search term
-      if (searchTerm.trim() !== '') {
-        setSearchResults(searchRestaurants(restaurants, searchTerm));
-      } else {
-        setSearchResults(restaurants);
-      }
-    } else {
-      // Apply filters
-      let filtered = restaurants;
-      
-      // Apply search term if present
-      if (searchTerm.trim() !== '') {
-        filtered = searchRestaurants(filtered, searchTerm);
-      }
-      
-      // Filter restaurants that have at least one food item matching all selected dietary requirements
+  const applyFilters = (restaurantList = null) => {
+    let filtered = restaurantList || (searchTerm.trim() !== '' ? 
+      searchRestaurants(restaurants, searchTerm) : restaurants);
+    
+    // Apply cuisine filter if selected
+    if (selectedCuisine) {
       filtered = filtered.filter(restaurant => 
-        activeFilters.every(filter => 
-          restaurant.foods.some(food => 
-            food.tags && food.tags.includes(filter.toLowerCase())
-          )
-        )
+        restaurant.cuisine === selectedCuisine
       );
-      
-      setSearchResults(filtered);
     }
     
-    // Close the filter modal after applying
+    setSearchResults(filtered);
     setFilterModalOpen(false);
   };
+
+  // Apply filters when cuisine changes
+  useEffect(() => {
+    applyFilters();
+  }, [selectedCuisine]);
 
   return (
     <div className="search-container">
@@ -83,7 +63,7 @@ function Search() {
           <input 
             type="text" 
             className="search-input" 
-            placeholder="Search restaurants or foods..." 
+            placeholder="Search restaurants, cuisine, or foods..." 
             value={searchTerm}
             onChange={handleSearch}
           />
@@ -93,38 +73,59 @@ function Search() {
         </div>
         
         <div className={`filter-modal ${filterModalOpen ? 'open' : ''}`}>
-          <h3>Dietary Filters</h3>
+          <h3>Cuisine Filters</h3>
           <div className="filter-options">
-            {dietaryOptions.map(option => (
-              <label key={option.value} className="filter-option">
-                <input 
-                  type="checkbox" 
-                  checked={activeFilters.includes(option.value)}
-                  onChange={() => toggleFilterOption(option.value)}
-                />
-                {option.label}
-              </label>
-            ))}
+            <select 
+              value={selectedCuisine} 
+              onChange={handleCuisineChange}
+              className="cuisine-select"
+            >
+              <option value="">All Cuisines</option>
+              {uniqueCuisines.map(cuisine => (
+                <option key={cuisine} value={cuisine}>{cuisine}</option>
+              ))}
+            </select>
           </div>
-          <button className="apply-filters-button" onClick={applyFilters}>
+          <button className="apply-filters-button" onClick={() => applyFilters()}>
             Apply Filters
           </button>
         </div>
+
+        {/* Show selected cuisine as a visible filter tag */}
+        {selectedCuisine && (
+          <div className="active-filters">
+            <div className="filter-tag">
+              {selectedCuisine}
+              <button 
+                className="remove-filter" 
+                onClick={() => setSelectedCuisine('')}
+              >
+                ×
+              </button>
+            </div>
+          </div>
+        )}
       </div>
       
       <div className="search-results">
-        <p className="results-count">{searchResults.length} results found</p>
+        <p className="results-count">
+          {searchResults.length} {searchResults.length === 1 ? 'restaurant' : 'restaurants'} found
+          {selectedCuisine && ` for ${selectedCuisine}`}
+        </p>
         
         <div className="results-list">
           {searchResults.length > 0 ? (
             searchResults.map(restaurant => (
               <div key={restaurant.id} className="restaurant-card">
                 <div className="restaurant-header">
-            
+                
                   <div className="restaurant-info">
                     <h3>{restaurant.name}</h3>
                     <div className="rating">
                       <span role="img" aria-label="rating">⭐</span> {restaurant.rating}/5
+                      {restaurant.cuisine && (
+                        <span className="cuisine-tag">{restaurant.cuisine}</span>
+                      )}
                     </div>
                   </div>
                 </div>

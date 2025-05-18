@@ -37,7 +37,7 @@ function Home() {
             <h3>Key Features:</h3>
             <ul className="features-list">
               <li><span>🍽️</span> Curated restaurant listings near Hunter College</li>
-              <li><span>🥗</span> Filter by dietary restrictions (vegetarian, halal, vegan, etc.)</li>
+              <li><span>🥗</span> Filter by cuisine</li>
               <li><span>💰</span> View student discounts and special deals</li>
               <li><span>🗺️</span> Interactive map to find locations easily</li>
               <li><span>📝</span> Create personalized meal plans based on preferences</li>
@@ -98,7 +98,7 @@ function Home() {
           <div className="step">
             <div className="step-number">2</div>
             <h3>Filter Your Options</h3>
-            <p>Narrow down choices by dietary restrictions, price range, or distance</p>
+            <p>Narrow down choices by cuisine or price range</p>
           </div>
           <div className="step">
             <div className="step-number">3</div>

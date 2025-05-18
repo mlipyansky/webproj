@@ -7,6 +7,7 @@ export const restaurants = [
     description: "Coffee shop with sustainable beans, pastries, and breakfast items.",
     priceRange: "$1-10",
     website: "https://www.blankstreet.com/",
+    cuisine: "Coffee & Bakery",
     menu: [
       { id: 1, name: "Cold Brew", tags: [] },
       { id: 2, name: "Almond Croissant", tags: [] },
@@ -23,6 +24,7 @@ export const restaurants = [
     description: "Bubble tea and poke bowl combo spot with customizable options.",
     priceRange: "$",
     website: "https://gongchausa.com/",
+    cuisine: "Poke & Bubble Tea",
     menu: [
       { id: 1, name: "Classic Milk Tea", tags: [] },
       { id: 2, name: "Spicy Tuna Poke Bowl", tags: [] },
@@ -39,6 +41,7 @@ export const restaurants = [
     description: "Popular chain offering coffee and donuts.",
     priceRange: "$1-10",
     website: "https://locations.dunkindonuts.com/en/ny/new-york/882-lexington-ave/351935",
+    cuisine: "Coffee & Bakery",
     menu: [
       { id: 1, name: "Glazed Donut", tags: [] },
       { id: 2, name: "Bacon Egg & Cheese", tags: [] },
@@ -55,6 +58,7 @@ export const restaurants = [
     description: "Classic Jewish deli with soups, sandwiches, and traditional comfort food.",
     priceRange: "$20-30",
     website: "https://pjbernstein.com/",
+    cuisine: "Jewish",
     menu: [
       { id: 1, name: "Matzo Ball Soup", tags: [] },
       { id: 2, name: "Reuben Sandwich", tags: [] },
@@ -71,6 +75,7 @@ export const restaurants = [
     description: "Offers a variety of Korean dishes like chicken teriyaki over rice, kimbop, and bibimbap at affordable prices.",
     priceRange: "$10-20",
     website: "https://www.koreantakeout.com/",
+    cuisine: "Korean",
     menu: [
       { id: 1, name: "Bibimbap", tags: [] },
       { id: 2, name: "Beef Teriyaki Bowl", tags: [] },
@@ -87,6 +92,7 @@ export const restaurants = [
     description: "Fast-casual chain known for smashed burgers, fries, and shakes.",
     priceRange: "$10-20",
     website: "https://smashburger.com/locations/us/ny/new-york/804-lexington-ave",
+    cuisine: "American",
     menu: [
       { id: 1, name: "Classic Smash Burger", tags: [] },
       { id: 2, name: "Avocado Bacon Club", tags: [] },
@@ -103,6 +109,7 @@ export const restaurants = [
     description: "Serves classic New York-style pizza slices and pies at budget-friendly prices.",
     priceRange: "$1-10",
     website: "https://www.littleitalypizza68thst.com/?utm_source=gbp",
+    cuisine: "Pizza",
     menu: [
       { id: 1, name: "Cheese Slice", tags: [] },
       { id: 2, name: "Pepperoni Slice", tags: [] },
@@ -119,6 +126,7 @@ export const restaurants = [
     description: "Halal Asian cuisine food truck offering rice bowls, salads, and vegan options.",
     priceRange: "$10-20",
     website: "https://nyfta.org/terry-and-yaki",
+    cuisine: "Halal Asian",
     menu: [
       { id: 1, name: "Chicken Teriyaki Bowl", tags: [] },
       { id: 2, name: "Tofu Salad", tags: [] },
@@ -135,6 +143,7 @@ export const restaurants = [
     description: "Popular spot among Hunter students offering affordable sandwiches with generous portions.",
     priceRange: "$10-20",
     website: "http://www.hunterdeli.net/",
+    cuisine: "Deli",
     menu: [
       { id: 1, name: "Turkey Club", tags: [] },
       { id: 2, name: "Egg Salad Sandwich", tags: [] },
@@ -151,6 +160,7 @@ export const restaurants = [
     description: "Offers a variety of bagels, spreads, and breakfast items.",
     priceRange: "$10-20",
     website: "https://gourmetbagelny.com/",
+    cuisine: "Bagels",
     menu: [
       { id: 1, name: "Everything Bagel", tags: [] },
       { id: 2, name: "Lox Spread", tags: [] },
@@ -167,6 +177,7 @@ export const restaurants = [
     description: "Known for a variety of tasty and quality soups.",
     priceRange: "$10-20",
     website: "https://www.schnippersqualitysoups.com/",
+    cuisine: "Soups",
     menu: [
       { id: 1, name: "Chicken Vegetable Soup", tags: [] },
       { id: 2, name: "New England Style Shrimp Chowder", tags: [] },
@@ -183,6 +194,7 @@ export const restaurants = [
     description: "Bakery and cafe serving organic breads, pastries, and light fare.",
     priceRange: "$10-20",
     website: "https://www.lepainquotidien.com/us/en/locations/148:%2065th%20&%20Lexington/861-Lexington-Ave",
+    cuisine: "Bakery/Restaurant",
     menu: [
       { id: 1, name: "Avocado Toast", tags: [] },
       { id: 2, name: "Belgian Waffle", tags: [] },
@@ -199,6 +211,7 @@ export const restaurants = [
     description: "Fast-casual Mexican chain known for burritos, bowls, and tacos.",
     priceRange: "$10-20",
     website: "https://locations.chipotle.com/ny/new-york/1153-third-avenue?utm_source=google&utm_medium=yext&utm_campaign=yext_listings",
+    cuisine: "Mexican",
     menu: [
       { id: 1, name: "Chicken Burrito", tags: [] },
       { id: 2, name: "Steak Bowl", tags: [] },
@@ -215,6 +228,7 @@ export const restaurants = [
     description: "Casual restaurant offering New York-style pizzas with a focus on fresh ingredients.",
     priceRange: "$1-10",
     website: "https://www.orderpizzanapoli.com/",
+    cuisine: "Pizza",
     menu: [
       { id: 1, name: "Margherita Pizza", tags: [] },
       { id: 2, name: "Penne Vodka", tags: [] },
@@ -231,6 +245,7 @@ export const restaurants = [
     description: "All-day diner delivering a lengthy lineup of casual staples in a bright, booth-lined space.",
     priceRange: "$10-20",
     website: "http://www.eatherenownewyork.com/",
+    cuisine: "Diner",
     menu: [
       { id: 1, name: "Eggs and Omelettes", tags: [] },
       { id: 2, name: "Gyro Souvlaki Sandwich Platter", tags: [] },
@@ -247,6 +262,7 @@ export const restaurants = [
     description: "Bakery offering a selection of breads, pastries, and coffee.",
     priceRange: "$$",
     website: "https://www.yelp.com/biz/corrado-bread-and-pastry-new-york",
+    cuisine: "Coffee & Bakery",
     menu: [
       { id: 1, name: "Almond Croissant", tags: [] },
       { id: 2, name: "Cappuccino", tags: [] },
@@ -263,6 +279,7 @@ export const restaurants = [
     description: "Neighborhood pizzeria known for its classic New York-style slices.",
     priceRange: "$1-10",
     website: "https://www.ordermariellapizzamenu.com/?utm_source=gbp",
+    cuisine: "Pizza",
     menu: [
       { id: 1, name: "Sicilian Slice", tags: [] },
       { id: 2, name: "White Pizza", tags: [] },
@@ -279,6 +296,7 @@ export const restaurants = [
     description: "Fast-casual Mexican spot offering tacos, burritos, and bowls.",
     priceRange: "$10-20",
     website: "https://www.dostoros.com/",
+    cuisine: "Mexican",
     menu: [
       { id: 1, name: "Carnitas Tacos", tags: [] },
       { id: 2, name: "Pollo Asado Burrito", tags: [] },
@@ -295,6 +313,7 @@ export const restaurants = [
     description: "Chinese restaurant serving dumplings, noodles, and stir-fry.",
     priceRange: "$20-30",
     website: "https://www.pengsnoodlefolk.com/",
+    cuisine: "Chinese",
     menu: [
       { id: 1, name: "Dan Dan Noodles", tags: [] },
       { id: 2, name: "Pork Dumplings", tags: [] },
@@ -311,6 +330,7 @@ export const restaurants = [
     description: "Japanese restaurant offering sushi and fusion dishes.",
     priceRange: "$20-30",
     website: "https://www.ajisaionline.com/",
+    cuisine: "Japanese",
     menu: [
       { id: 1, name: "Sushi Combo", tags: [] },
       { id: 2, name: "Spicy Tuna Roll", tags: [] },
@@ -327,6 +347,7 @@ export const restaurants = [
     description: "Casual Japanese ramen shop serving tonkotsu, miso, and spicy ramen bowls with add-ons like egg and pork.",
     priceRange: "$20-30",
     website: "https://meijinramen.wixsite.com/kuu-ues",
+    cuisine: "Japanese",
     menu: [
       { id: 1, name: "Tonkotsu Ramen", tags: [] },
       { id: 2, name: "Spicy Miso Ramen", tags: [] },
@@ -343,6 +364,7 @@ export const restaurants = [
     description: "National chain serving tacos, burritos, and other Mexican-style fast food at low prices.",
     priceRange: "$10-20",
     website: "https://www.tacobell.com/food?store=035896&utm_source=yext&utm_campaign=googlelistings&utm_medium=referral&utm_term=035896&utm_content=menu&y_source=1_MTI4MzQ1MjYtNzE1LWxvY2F0aW9uLm1lbnVfdXJs",
+    cuisine: "Mexican",
     menu: [
       { id: 1, name: "Crunchwrap Supreme", tags: [] },
       { id: 2, name: "Chicken Quesadilla", tags: [] },
@@ -359,6 +381,7 @@ export const restaurants = [
     description: "Fast-food chain for Chinese standards, including some health-conscious options.",
     priceRange: "$",
     website: "https://www.pandaexpress.com/locations/ny/new-york/2545",
+    cuisine: "Chinese",
     menu: [
       { id: 1, name: "Chow Mein", tags: [] },
       { id: 2, name: "Orange Chicken", tags: [] },
@@ -375,6 +398,7 @@ export const restaurants = [
     description: "The best restaurants from across the country, all in one place.",
     priceRange: "$10-20",
     website: "https://www.wonder.com/food-delivery-locations/lenox-hill?utm_source=google&utm_campaign=202407_Google_PerformanceMax_HDR_NA_All&url=https://app.wonder.com/frcfb8tfWKb&utm_source=google&utm_campaign=202407_Google_PerformanceMax_HDR_NA_All&gad_source=1&gad_campaignid=21894305889&gbraid=0AAAAABq3v3tCqiXXh5vDFDVtjgM7cnt5V&gclid=CjwKCAjw56DBBhAkEiwAaFsG-sEzL1jKaeHLp7UH7UmSQ-eECdRSRpFyITC_xRKVoeIzphPTWUmlrhoCcPMQAvD_BwE",
+    cuisine: "Mixed",
     menu: [
       { id: 1, name: "Tejas Barbecue", tags: [] },
       { id: 2, name: "Royal Greens", tags: [] },
@@ -387,11 +411,9 @@ export const restaurants = [
 
 
 // Filter functions for restaurant data
-export const filterByDiet = (restaurants, dietType) => {
+export const filterByCuisine = (restaurants, cuisineType) => {
   return restaurants.filter(restaurant => 
-    restaurant.menu.some(item => 
-      item.tags && item.tags.includes(dietType.toLowerCase())
-    )
+    restaurant.cuisine && restaurant.cuisine.toLowerCase() === cuisineType.toLowerCase()
   );
 };
 
@@ -404,6 +426,7 @@ export const searchRestaurants = (restaurants, term) => {
   return restaurants.filter(restaurant => 
     restaurant.name.toLowerCase().includes(searchTerm) ||
     restaurant.description.toLowerCase().includes(searchTerm) ||
+    restaurant.cuisine.toLowerCase().includes(searchTerm) ||
     restaurant.menu.some(item => item.name.toLowerCase().includes(searchTerm))
   );
 };

@@ -46,6 +46,10 @@ function RestaurantDetail() {
           </div>
           <p className="address">{restaurant.address}</p>
           <p className="price-range">Price Range: {restaurant.priceRange}</p>
+          <p className="cuisine">
+          <span role="img" aria-label="cuisine">🍽️</span> Cuisine:
+          <span className="cuisine-tag detail-tag">{restaurant.cuisine}</span>
+          </p>
           <p className="description">{restaurant.description}</p>
           <p className="deals">{restaurant.deals}</p>
           {restaurant.website && (

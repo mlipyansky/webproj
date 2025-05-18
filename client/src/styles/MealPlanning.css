@@ -99,3 +99,32 @@
     border-radius: 20px;
     font-size: 0.8rem;
   }
+
+  .toggle-container {
+    display: flex;
+    margin-bottom: 1.5rem;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 2px solid #a259ff;
+  }
+  
+  .toggle-btn {
+    flex: 1;
+    padding: 0.8rem;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  
+  .toggle-btn.active {
+    background-color: #a259ff;
+    color: white;
+  }
+  
+  .food-price {
+    font-weight: bold;
+    color: #4caf50;
+    margin: 0.5rem 0;
+  }
