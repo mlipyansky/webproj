@@ -63,14 +63,6 @@ function Home() {
       </div>
         
       
-      <div className="food-grid">
-        {restaurant.menu.map(item => (
-          <div key={item.id} className="food-item">
-            {item.name}
-          </div>
-        ))}
-      </div>
-      
       <Link to={`/restaurant/${restaurant.id}`} className="view-details-btn">
         View Details
       </Link>

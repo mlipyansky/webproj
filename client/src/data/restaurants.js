@@ -12,7 +12,9 @@ export const restaurants = [
       { id: 1, name: "Cold Brew", tags: [] },
       { id: 2, name: "Almond Croissant", tags: [] },
       { id: 3, name: "Iced Matcha Tea", tags: [] },
-      { id: 4, name: "Blueberry Muffin", tags: [] }
+      { id: 4, name: "Blueberry Muffin", tags: [] },
+      { id: 5, name: "Banana Bread", tags: [] },
+      { id: 6, name: "Pistachio Creme Cookie", tags: [] }
     ],
     deals: "",
   },
@@ -29,7 +31,9 @@ export const restaurants = [
       { id: 1, name: "Classic Milk Tea", tags: [] },
       { id: 2, name: "Spicy Tuna Poke Bowl", tags: [] },
       { id: 3, name: "Taro Slush", tags: [] },
-      { id: 4, name: "Salmon Avocado Bowl", tags: [] }
+      { id: 4, name: "Salmon Avocado Bowl", tags: [] },
+      { id: 5, name: "Mango Yogurt Drink", tags: [] },
+      { id: 6, name: "Wintermelon Oolong", tags: [] }
     ],
     deals: "10% off with Hunter Student ID",
   },
@@ -46,7 +50,9 @@ export const restaurants = [
       { id: 1, name: "Glazed Donut", tags: [] },
       { id: 2, name: "Bacon Egg & Cheese", tags: [] },
       { id: 3, name: "Iced Coffee", tags: [] },
-      { id: 4, name: "Hash Browns", tags: [] }
+      { id: 4, name: "Hash Browns", tags: [] },
+      { id: 5, name: "Chocolate Donut", tags: [] },
+      { id: 6, name: "Avocado Toast", tags: [] }
     ],
     deals: "10% off with Hunter Student ID",
   },
@@ -63,7 +69,9 @@ export const restaurants = [
       { id: 1, name: "Matzo Ball Soup", tags: [] },
       { id: 2, name: "Reuben Sandwich", tags: [] },
       { id: 3, name: "Pastrami on Rye", tags: [] },
-      { id: 4, name: "Potato Knish", tags: [] }
+      { id: 4, name: "Potato Knish", tags: [] },
+      { id: 5, name: "Grandpa's Soup", tags: [] },
+      { id: 6, name: "Hot Russian Borscht", tags: [] }
     ],
     deals: "",
   },
@@ -80,7 +88,9 @@ export const restaurants = [
       { id: 1, name: "Bibimbap", tags: [] },
       { id: 2, name: "Beef Teriyaki Bowl", tags: [] },
       { id: 3, name: "Spicy Tofu", tags: [] },
-      { id: 4, name: "Kimbop Roll", tags: [] }
+      { id: 4, name: "Kimbop Roll", tags: [] },
+      { id: 5, name: "Mandoo", tags: []},
+      { id: 6, name: "Korean Chicken Nuggets", tags: []}
     ],
     deals: "",
   },
@@ -97,7 +107,9 @@ export const restaurants = [
       { id: 1, name: "Classic Smash Burger", tags: [] },
       { id: 2, name: "Avocado Bacon Club", tags: [] },
       { id: 3, name: "Smash Fries", tags: [] },
-      { id: 4, name: "Vanilla Shake", tags: [] }
+      { id: 4, name: "Vanilla Shake", tags: [] },
+      { id: 5, name: "Jalapeno BBQ Bacon Stack Smash", tags: [] },
+      { id: 6, name: "Crispy Chicken Sandwich", tags: [] }
     ],
     deals: "",
   },
@@ -114,7 +126,9 @@ export const restaurants = [
       { id: 1, name: "Cheese Slice", tags: [] },
       { id: 2, name: "Pepperoni Slice", tags: [] },
       { id: 3, name: "Grandma Pie", tags: [] },
-      { id: 4, name: "Garlic Knots", tags: [] }
+      { id: 4, name: "Garlic Knots", tags: [] },
+      { id: 5, name: "Mushroom Pizza", tags: [] },
+      { id: 6, name: "Spinach Roll", tags: [] }
     ],
     deals: "",
   },
@@ -131,7 +145,9 @@ export const restaurants = [
       { id: 1, name: "Chicken Teriyaki Bowl", tags: [] },
       { id: 2, name: "Tofu Salad", tags: [] },
       { id: 3, name: "Spicy Beef Bowl", tags: [] },
-      { id: 4, name: "Vegan Dumplings", tags: [] }
+      { id: 4, name: "Vegan Dumplings", tags: [] },
+      { id: 5, name: "Sirloin Steak Bowl", tags: [] },
+      { id: 6, name: "Loaded Sweet Potato Fries", tags: [] }
     ],
     deals: "",
   },
@@ -148,7 +164,9 @@ export const restaurants = [
       { id: 1, name: "Turkey Club", tags: [] },
       { id: 2, name: "Egg Salad Sandwich", tags: [] },
       { id: 3, name: "Bacon Cheeseburger", tags: [] },
-      { id: 4, name: "Fries", tags: [] }
+      { id: 4, name: "Fries", tags: [] },
+      { id: 5, name: "Turkey Breast Sandwich", tags: [] },
+      { id: 6, name: "French Toast Special", tags: [] }
     ],
     deals: "10% off with Hunter Student ID",
   },
@@ -157,7 +175,7 @@ export const restaurants = [
     name: "Gourmet Bagel",
     rating: 4.1,
     address: "874 Lexington Ave, New York, NY 10065",
-    description: "Offers a variety of bagels, spreads, and breakfast items.",
+    description: "Offers a variety of bagels, sandwiches, and breakfast items.",
     priceRange: "$10-20",
     website: "https://gourmetbagelny.com/",
     cuisine: "Bagels",
@@ -165,7 +183,9 @@ export const restaurants = [
       { id: 1, name: "Everything Bagel", tags: [] },
       { id: 2, name: "Lox Spread", tags: [] },
       { id: 3, name: "Egg & Cheese", tags: [] },
-      { id: 4, name: "Iced Coffee", tags: [] }
+      { id: 4, name: "Iced Coffee", tags: [] },
+      { id: 5, name: "Chicken Ceaser Wrap", tags: [] },
+      { id: 6, name: "Philly Cheese Steak", tags: [] }
     ],
     deals: "10% off with Hunter Student ID",
   },
@@ -182,7 +202,9 @@ export const restaurants = [
       { id: 1, name: "Chicken Vegetable Soup", tags: [] },
       { id: 2, name: "New England Style Shrimp Chowder", tags: [] },
       { id: 3, name: "Terrific Tuna Melt", tags: [] },
-      { id: 4, name: "Mama's Mediterranean Salad", tags: [] }
+      { id: 4, name: "Mama's Mediterranean Salad", tags: [] },
+      { id: 5, name: "Tomato Cheddar Soup", tags: [] },
+      { id: 6, name: "Raspberry Lemonade", tags: [] }
     ],
     deals: "",
   },
@@ -199,7 +221,9 @@ export const restaurants = [
       { id: 1, name: "Avocado Toast", tags: [] },
       { id: 2, name: "Belgian Waffle", tags: [] },
       { id: 3, name: "Croissant", tags: [] },
-      { id: 4, name: "Sunnyside Breakfast Bowl", tags: [] }
+      { id: 4, name: "Sunnyside Breakfast Bowl", tags: [] },
+      { id: 5, name: "Dutch Mini Pancakes", tags: [] },
+      { id: 6, name: "Smoked Salmon Tartine", tags: [] }
     ],
     deals: "",
   },
@@ -216,7 +240,9 @@ export const restaurants = [
       { id: 1, name: "Chicken Burrito", tags: [] },
       { id: 2, name: "Steak Bowl", tags: [] },
       { id: 3, name: "Barbacoa Tacos", tags: [] },
-      { id: 4, name: "Chips & Guac", tags: [] }
+      { id: 4, name: "Chips & Guac", tags: [] },
+      { id: 5, name: "Lifestyle Bowl", tags: [] },
+      { id: 6, name: "Quesadilla", tags: [] }
     ],
     deals: "",
   },
@@ -233,7 +259,9 @@ export const restaurants = [
       { id: 1, name: "Margherita Pizza", tags: [] },
       { id: 2, name: "Penne Vodka", tags: [] },
       { id: 3, name: "Chicken Parmigiana", tags: [] },
-      { id: 4, name: "Garlic Bread", tags: [] }
+      { id: 4, name: "Garlic Bread", tags: [] },
+      { id: 5, name: "Meat Lovers Pizza", tags: [] },
+      { id: 6, name: "Mozzeralla Sticks", tags: [] }
     ],
     deals: "",
   },
@@ -250,7 +278,9 @@ export const restaurants = [
       { id: 1, name: "Eggs and Omelettes", tags: [] },
       { id: 2, name: "Gyro Souvlaki Sandwich Platter", tags: [] },
       { id: 3, name: "BLT", tags: [] },
-      { id: 4, name: "Veggie Burger", tags: [] }
+      { id: 4, name: "Veggie Burger", tags: [] },
+      { id: 5, name: "Chicken Salad Delight", tags: [] },
+      { id: 6, name: "Bacon Swiss Burger", tags: [] }
     ],
     deals: "",
   },
@@ -267,7 +297,9 @@ export const restaurants = [
       { id: 1, name: "Almond Croissant", tags: [] },
       { id: 2, name: "Cappuccino", tags: [] },
       { id: 3, name: "Tomato Mozzarella Sandwich", tags: [] },
-      { id: 4, name: "Blueberry Muffin", tags: [] }
+      { id: 4, name: "Blueberry Muffin", tags: [] },
+      { id: 5, name: "Greek Feta Sandwich", tags: [] },
+      { id: 6, name: "Cobb Salad", tags: [] }
     ],
     deals: "",
   },
@@ -284,7 +316,9 @@ export const restaurants = [
       { id: 1, name: "Sicilian Slice", tags: [] },
       { id: 2, name: "White Pizza", tags: [] },
       { id: 3, name: "Garlic Knots", tags: [] },
-      { id: 4, name: "Buffalo Chicken Slice", tags: [] }
+      { id: 4, name: "Buffalo Chicken Slice", tags: [] },
+      { id: 5, name: "Pasta", tags: [] },
+      { id: 6, name: "Chicken Marsala", tags: [] }
     ],
     deals: "",
   },
@@ -301,7 +335,9 @@ export const restaurants = [
       { id: 1, name: "Carnitas Tacos", tags: [] },
       { id: 2, name: "Pollo Asado Burrito", tags: [] },
       { id: 3, name: "Rice Bowl", tags: [] },
-      { id: 4, name: "Chips & Salsa", tags: [] }
+      { id: 4, name: "Chips & Salsa", tags: [] },
+      { id: 5, name: "Nachos", tags: [] },
+      { id: 6, name: "Verde Chicken", tags: [] }
     ],
     deals: "",
   },
@@ -318,7 +354,9 @@ export const restaurants = [
       { id: 1, name: "Dan Dan Noodles", tags: [] },
       { id: 2, name: "Pork Dumplings", tags: [] },
       { id: 3, name: "Hot & Sour Soup", tags: [] },
-      { id: 4, name: "Lo Mein", tags: [] }
+      { id: 4, name: "Lo Mein", tags: [] },
+      { id: 5, name: "Wasabi Cucumber", tags: [] },
+      { id: 6, name: "Banmen", tags: [] }
     ],
     deals: "",
   },
@@ -335,7 +373,9 @@ export const restaurants = [
       { id: 1, name: "Sushi Combo", tags: [] },
       { id: 2, name: "Spicy Tuna Roll", tags: [] },
       { id: 3, name: "Yaki Udon", tags: [] },
-      { id: 4, name: "Shrimp Tempura", tags: [] }
+      { id: 4, name: "Shrimp Tempura", tags: [] },
+      { id: 5, name: "Edamame", tags: [] },
+      { id: 6, name: "Chicken Teryaki", tags: [] }
     ],
     deals: "",
   },
@@ -352,7 +392,9 @@ export const restaurants = [
       { id: 1, name: "Tonkotsu Ramen", tags: [] },
       { id: 2, name: "Spicy Miso Ramen", tags: [] },
       { id: 3, name: "Pork Gyoza", tags: [] },
-      { id: 4, name: "Seaweed Salad", tags: [] }
+      { id: 4, name: "Seaweed Salad", tags: [] },
+      { id: 5, name: "Katsu Curry Rice", tags: [] },
+      { id: 6, name: "Kuu Chili", tags: [] }
     ],
     deals: "",
   },
@@ -369,7 +411,9 @@ export const restaurants = [
       { id: 1, name: "Crunchwrap Supreme", tags: [] },
       { id: 2, name: "Chicken Quesadilla", tags: [] },
       { id: 3, name: "Bean Burrito", tags: [] },
-      { id: 4, name: "Soft Taco", tags: [] }
+      { id: 4, name: "Soft Taco", tags: [] },
+      { id: 5, name: "Cantina Chicken", tags: [] },
+      { id: 6, name: "Nachos", tags: [] }
     ],
     deals: "",
   },
@@ -386,7 +430,9 @@ export const restaurants = [
       { id: 1, name: "Chow Mein", tags: [] },
       { id: 2, name: "Orange Chicken", tags: [] },
       { id: 3, name: "Beef with Broccoli", tags: [] },
-      { id: 4, name: "Honey Walnut Shrimp", tags: [] }
+      { id: 4, name: "Honey Walnut Shrimp", tags: [] },
+      { id: 5, name: "Fried Rice", tags: [] },
+      { id: 6, name: "Kung Pao Chicken", tags: [] }
     ],
     deals: "",
   },
@@ -403,7 +449,9 @@ export const restaurants = [
       { id: 1, name: "Tejas Barbecue", tags: [] },
       { id: 2, name: "Royal Greens", tags: [] },
       { id: 3, name: "Di Fara Pizza", tags: [] },
-      { id: 4, name: "Bobby Flay Steak", tags: [] }
+      { id: 4, name: "Bobby Flay Steak", tags: [] },
+      { id: 5, name: "Limesalt", tags: [] },
+      { id: 6, name: "Burger Baby", tags: [] }
     ],
     deals: "Constant promotions and discounts for Hunter Students, keep an eye out!",
   },
