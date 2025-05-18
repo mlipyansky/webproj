@@ -47,6 +47,7 @@ function RestaurantDetail() {
           <p className="address">{restaurant.address}</p>
           <p className="price-range">Price Range: {restaurant.priceRange}</p>
           <p className="description">{restaurant.description}</p>
+          <p className="deals">{restaurant.deals}</p>
           {restaurant.website && (
   <p className="website">
     <span role="img" aria-label="website">🌐</span>{' '}
@@ -82,16 +83,7 @@ function RestaurantDetail() {
         </div>
       </section>
 
-      {restaurant.deals && restaurant.deals.length > 0 && (
-        <section className="deals-section">
-          <h2>Special Deals</h2>
-          <ul className="deals-list">
-            {restaurant.deals.map((deal, index) => (
-              <li key={index} className="deal-item">{deal}</li>
-            ))}
-          </ul>
-        </section>
-      )}
+    
 
       <section className="reviews-section">
         <h2>Reviews</h2>
