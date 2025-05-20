@@ -54,6 +54,7 @@ function Search() {
   // Apply filters when cuisine changes
   useEffect(() => {
     applyFilters();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedCuisine]);
 
   return (
