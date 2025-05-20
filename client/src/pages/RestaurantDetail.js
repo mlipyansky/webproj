@@ -78,7 +78,7 @@ function RestaurantDetail() {
           {item.price && <p className="price">${item.price.toFixed(2)}</p>}
           {item.calories && (
             <p className="calories">
-              <span className="calorie-icon">🔥</span> 
+               
               {item.calories} cal
             </p>
           )}
