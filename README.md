@@ -32,3 +32,5 @@ Frontend: HTML, CSS (Tailwind or Bootstrap), JavaScript (React or Vue.js)
 Backend: Node.js 
 Database: MongoDB possibly for storing users, restaurant data, preferences, etc
 APIs: Google Maps API for location services, Yelp Fusion API for restaurant data
+
+https://hungryhawks.netlify.app/
