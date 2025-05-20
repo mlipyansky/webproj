@@ -10,6 +10,8 @@ function RestaurantDetail() {
   const [reviews, setReviews] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   useEffect(() => {
     // Find the restaurant by ID
     const foundRestaurant = restaurants.find(r => r.id === parseInt(id));
@@ -19,7 +21,7 @@ function RestaurantDetail() {
       const fetchReviews = async () => {
         try {
           setLoading(true);
-          const res = await fetch(`http://localhost:3001/reviews/${encodeURIComponent(foundRestaurant.name)}`);
+          const res = await fetch(`http://162.249.173.211:3001/reviews/${encodeURIComponent(foundRestaurant.name)}`);
 
           if (res.ok) {
             const data = await res.json();
@@ -51,7 +53,7 @@ function RestaurantDetail() {
     const session_id= document.cookie.split("; ").find((row) => row.startsWith("session_id="))?.split("=")[1];
     if (session_id) {
       try {
-        const res = await fetch("http://localhost:3001/reviews", {
+        const res = await fetch(`http://162.249.173.211:3001/reviews`, {
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
@@ -64,7 +66,7 @@ function RestaurantDetail() {
 
         if (res.ok) {
           // Refresh after a successful submission
-          const refreshResponse = await fetch(`http://localhost:3001/reviews/${encodeURIComponent(restaurant.name)}`);
+          const refreshResponse = await fetch(`http://162.249.173.211:3001/reviews/${encodeURIComponent(restaurant.name)}`);
           if (refreshResponse.ok) {
             const data = await refreshResponse.json();
             setReviews(data.reviews || []);

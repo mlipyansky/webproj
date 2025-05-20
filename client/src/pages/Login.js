@@ -12,6 +12,8 @@ function Login() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [shouldRedirect, setShouldRedirect] = useState(false);
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     
@@ -32,7 +34,7 @@ function Login() {
     try {
       if (isLogin) {
         // Simulate login
-          const res = await fetch('http://localhost:3001/login', {
+          const res = await fetch(`http://162.249.173.211:3001/login`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -52,7 +54,7 @@ function Login() {
           setIsLogin(true);
       } else {
         // Simulate registration
-          const res = await fetch('http://localhost:3001/register', {
+          const res = await fetch(`http://162.249.173.211:3001/register`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

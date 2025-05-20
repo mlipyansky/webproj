@@ -1,4 +1,5 @@
-const express = require('express')
+const express = require('express');
+const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const { v4: uuidv4 } = require('uuid');
 const sqlite3 = require('sqlite3').verbose();
@@ -8,6 +9,10 @@ const port = 3001
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors({
+  origin: ['http://localhost:3000', 'http://localhost:3000'],
+  credentials: true
+}));
 
 function init_db(db) {
     // Create the account table if it doesn't exist already
