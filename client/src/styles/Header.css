@@ -19,7 +19,8 @@
 }
 
 .logo-image {
-  height: 70px; /* Adjust this value based on your logo's dimensions */
+  height: 70px;
+  /* Adjust this value based on your logo's dimensions */
   width: auto;
 }
 
@@ -42,13 +43,24 @@
   background-color: rgba(255, 255, 255, 0.2);
 }
 
+.logout-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
+  color: inherit;
+  padding: inherit;
+  text-decoration: none;
+}
+
 /* For larger screens, display logo and nav side by side */
 @media (min-width: 768px) {
   .header-content {
     flex-direction: row;
     justify-content: space-between;
   }
-  
+
   .site-logo {
     margin-bottom: 0;
   }

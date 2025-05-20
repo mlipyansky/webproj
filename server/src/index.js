@@ -48,7 +48,7 @@ init_db(db);
 
 // HANDLERS
 app.post('/register', function (req, response) {
-    console.log("Received command");
+    console.log("Received register command");
     const { username, email, password } = req.body;
 
     // Validate (they may not exist or be the expected type per docs)
@@ -61,14 +61,33 @@ app.post('/register', function (req, response) {
     // May fail if user already exists
     db.run('INSERT INTO users (username, email, password) VALUES (?, ?, ?)', username, email, password, function(err) {
         if (err) {
-            console.error("Could not create user!");
-            return response.status(400).json("Failed to create user!");
+            console.error("Could not create user!", err.message);
+            return response.status(400).json("Failed to create user: " + err.message);
         }
-        return response.status(201).json({ message: "Response received " });
+
+        const user_id = this.lastID;
+        const session_id = uuidv4();
+
+        // Create a session for the registered user
+        db.run('INSERT INTO sessions (id, user_id) VALUES (?, ?)', [session_id, user_id], (err) => {
+            if (err) {
+                console.error("Could not create a new session for the user", err.message);
+                return response.status(500).json({ message: "User created but session creation failed: " + err.message });
+            }
+
+            response.cookie('session_id', session_id, {
+                httpOnly: false
+            });
+            return response.status(201).json({ 
+                message: "Successfully registered", 
+                session_id: session_id 
+            });
+        });
     });
 });
 
 app.post('/login', function (req, response) {
+    console.log("Received login command");
     const { username, password } = req.body;
 
     // Validate (they may not exist or be the expected type per docs)
@@ -79,7 +98,7 @@ app.post('/login', function (req, response) {
 
     db.get('SELECT * FROM users WHERE username = ? AND password = ?', [username, password], (err, user) => {
         if (err || !user) {
-            console.error("The specified user does not exist.");
+            console.error("The specified user does not exist.", err ? err.message : "User not found");
             return response.status(400).send();
         }
 
@@ -87,12 +106,12 @@ app.post('/login', function (req, response) {
 
         db.run('INSERT INTO sessions (id, user_id) VALUES (?, ?)', [session_id, user.id], (err) => {
             if (err) {
-                console.error("Could not create a new session for the user");
+                console.error("Could not create a new session for the user", err.message);
                 return response.status(400).send();
             }
 
             response.cookie('session_id', session_id, {
-                httpOnly: true
+                httpOnly: false
             });
             return response.status(200).json({ message: "Succesfully logged in", session_id: session_id });
         });
@@ -100,6 +119,7 @@ app.post('/login', function (req, response) {
 });
 
 app.post('/reviews', function (req, response) {
+    console.log("Received post review command");
     const { session_id, restaurant, review } = req.body;
 
     if (!session_id || !restaurant || !review) {
@@ -109,7 +129,7 @@ app.post('/reviews', function (req, response) {
 
     db.get('SELECT user_id FROM sessions WHERE id = ?', [session_id], (err, session) => {
         if (err || !session) {
-            console.error("Could not find the corresponding session for the session_id");
+            console.error("Could not find the corresponding session for the session_id", err ? err.message : "Session not found");
             return response.status(400).send();
         }
 
@@ -118,7 +138,7 @@ app.post('/reviews', function (req, response) {
         db.run('INSERT INTO reviews (user_id, restaurant, review_text) VALUES (?, ?, ?)', 
             [user_id, restaurant, review], (err) => {
                 if (err) {
-                    console.error("Could not submit the review");
+                    console.error("Could not submit the review", err.message);
                     return response.status(400).send();
                 }
                 return response.status(200).json({ message: "Successfully posted review" });
@@ -127,6 +147,7 @@ app.post('/reviews', function (req, response) {
 });
 
 app.get('/reviews/:restaurant', function (req, response) {
+    console.log("Received get reviews command");
     const restaurant = req.params.restaurant;
 
     db.all(`
@@ -137,7 +158,7 @@ app.get('/reviews/:restaurant', function (req, response) {
         ORDER BY reviews.timestamp DESC
     `, [restaurant], (err, reviews) => {
         if (err) {
-            console.error("Could not find the requested restaurant");
+            console.error("Could not find the requested restaurant", err.message);
             return response.status(400).send();
         }
         return response.status(200).json({ reviews });

@@ -8,17 +8,37 @@ function RestaurantDetail() {
   const [restaurant, setRestaurant] = useState(null);
   const [review, setReview] = useState('');
   const [reviews, setReviews] = useState([]);
+  const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     // Find the restaurant by ID
     const foundRestaurant = restaurants.find(r => r.id === parseInt(id));
     if (foundRestaurant) {
       setRestaurant(foundRestaurant);
-      setReviews(foundRestaurant.reviews || []);
+
+      const fetchReviews = async () => {
+        try {
+          setLoading(true);
+          const res = await fetch(`http://localhost:3001/reviews/${encodeURIComponent(foundRestaurant.name)}`);
+
+          if (res.ok) {
+            const data = await res.json();
+            setReviews(data.reviews || []);
+          } else {
+            setReviews(foundRestaurant.reviews || []);
+          }
+        } catch (e) {
+          console.error("Failed to load reviews for: ", foundRestaurant.name);
+          setReviews(foundRestaurant.reviews || []);
+        } finally {
+          setLoading(false);
+        }
+      };
+      fetchReviews();
     }
   }, [id]);
 
-  const handleReviewSubmit = (e) => {
+  const handleReviewSubmit = async (e) => {
     e.preventDefault();
     if (review.trim() === '') return;
     
@@ -27,9 +47,37 @@ function RestaurantDetail() {
       text: review,
       date: new Date().toLocaleDateString()
     };
+
+    const session_id= document.cookie.split("; ").find((row) => row.startsWith("session_id="))?.split("=")[1];
+    if (session_id) {
+      try {
+        const res = await fetch("http://localhost:3001/reviews", {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            session_id: session_id,
+            restaurant: restaurant.name,
+            review: review,
+          }),
+          credentials: 'include',
+        });
+
+        if (res.ok) {
+          // Refresh after a successful submission
+          const refreshResponse = await fetch(`http://localhost:3001/reviews/${encodeURIComponent(restaurant.name)}`);
+          if (refreshResponse.ok) {
+            const data = await refreshResponse.json();
+            setReviews(data.reviews || []);
+          }
+          setReview('');
+        }
+      } catch (e) {
+        console.error("Error submitting review: ", e);
+      }
+    } else {
+      console.error("Couldn't parse session_id!");
+    }
     
-    setReviews([...reviews, newReview]);
-    setReview('');
   };
 
   if (!restaurant) {
@@ -116,8 +164,8 @@ function RestaurantDetail() {
           ) : (
             reviews.map((review, index) => (
               <div key={index} className="review-item">
-                <p className="review-text">{review.text}</p>
-                {review.date && <p className="review-date">{review.date}</p>}
+                <p className="review-text">{review.text || review.review_text}</p>
+                {(review.timestamp || review.date) && <p className="review-date">{review.date || review.timestamp}</p>}
               </div>
             ))
           )}

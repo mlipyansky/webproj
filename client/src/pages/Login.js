@@ -1,5 +1,5 @@
 // src/pages/Login.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/Login.css';
 
 function Login() {
@@ -9,35 +9,89 @@ function Login() {
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [shouldRedirect, setShouldRedirect] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     // Reset messages
     setError('');
     setSuccess('');
+    setIsSubmitting(true);
     
     // Simple validation
     if (!username || !password || (!isLogin && !email)) {
       setError('Please fill in all fields');
+      setIsSubmitting(false);
       return;
     }
     
     // For now, just simulate a successful login/registration
     // In a real app, you would connect to a backend API here
-    if (isLogin) {
-      // Simulate login
-      setSuccess('Login successful! Welcome back, ' + username);
-    } else {
-      // Simulate registration
-      setSuccess('Registration successful! Welcome to Hungry Hawks, ' + username);
+    try {
+      if (isLogin) {
+        // Simulate login
+          const res = await fetch('http://localhost:3001/login', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              username,
+              password
+            }),
+            credentials: 'include',
+          });
+
+          if (!res.ok) {
+            throw new Error("Login failed!");
+          }
+
+          setSuccess('Login successful! Welcome back, ' + username);
+          setIsLogin(true);
+      } else {
+        // Simulate registration
+          const res = await fetch('http://localhost:3001/register', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              username,
+              email,
+              password
+            }),
+            credentials: 'include'
+          });
+          if (!res.ok) {
+            throw new Error("Login failed!");
+          }
+
+          setSuccess('Registration successful! Welcome to Hungry Hawks, ' + username);
+          setIsLogin(true);
+      }
+      // Clear form
+      setUsername('');
+      setPassword('');
+      setEmail('');
+      setShouldRedirect(true);
+    } catch (e) {
+      setError("Failed to login/register!");
     }
     
-    // Clear form
-    setUsername('');
-    setPassword('');
-    setEmail('');
+    setIsSubmitting(false);
   };
+
+  // Redirects 1.25 seconds after successful login/register
+  useEffect(() => {
+    let timer;
+    if (shouldRedirect) {
+      timer = setTimeout(() => {
+        window.location.href = '/';
+      }, 1250);
+    }
+  });
 
   return (
     <div className="login-container">
